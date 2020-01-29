@@ -51,18 +51,47 @@ extension ViewController: ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         let imageName = referenceImage.name ?? "no name"
         
-        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.opacity = 0.80
-        planeNode.eulerAngles.x = -.pi / 2
-        
-        print(imageName)
-        
-//        planeNode.runAction(imageHighlightAction)
-        
-        node.addChildNode(planeNode)
+//        let plane = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
+//        let planeNode = SCNNode(geometry: plane)
+        ////        planeNode.opacity = 0.80
+//        planeNode.eulerAngles.x = -.pi / 2
+//
+//        print(imageName)
+//
+        ////        planeNode.runAction(imageHighlightAction)
+//
+//        node.addChildNode(planeNode)
 //        DispatchQueue.main.async {
 //            self.label.text = "Image detected: \"\(imageName)\""
 //        }
+        
+//        plane.
+        
+        let width = referenceImage.physicalSize.width
+        let height = referenceImage.physicalSize.height
+        let radius = 0.1 * min(width, height)
+        let length = radius
+        let cubeNode = SCNNode(geometry: SCNBox(width: width, height: height, length: length, chamferRadius: radius))
+        cubeNode.position = SCNVector3(0, 0, 0) // SceneKit/AR coordinates are in meters
+//        cubeNode.mate
+        cubeNode.eulerAngles.x = .pi / 2
+//        cubeNode.bac
+        node.addChildNode(cubeNode)
+        
+        let plane = SCNPlane(width: width - radius, height: height - radius)
+        let material = SCNMaterial()
+        material.diffuse.contents = imageName
+        material.locksAmbientWithDiffuse = true
+        material.isDoubleSided = false
+        material.ambient.contents = UIColor.white
+        
+        plane.firstMaterial = material
+        
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.position = SCNVector3(0, length, 0)
+
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        node.addChildNode(planeNode)
     }
 }

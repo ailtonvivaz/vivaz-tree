@@ -86,5 +86,6 @@ class Model {
             .build()
 
         self.family = person.families.first!
+        print(person.peopleWidth)
     }
 }

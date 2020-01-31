@@ -14,6 +14,14 @@ class Family: Equatable, Hashable {
     private(set) var partners: Set<Person>
     private(set) var children: Set<Person> = []
     
+    var childrenWidth: Int {
+        var partnersChildren = 0
+        if partners.count > 1 {
+            partnersChildren = partners.reduce(0) { $0 + $1.families.filter { $0.partners.count == 1 }.reduce(0) { $0 + $1.childrenWidth } }
+        }
+        return children.reduce(0) { $0 + $1.peopleWidth } + partnersChildren
+    }
+    
     init(partners: Set<Person>) {
         self.partners = partners
     }
@@ -28,5 +36,4 @@ class Family: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
 }

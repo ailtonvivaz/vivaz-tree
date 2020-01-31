@@ -16,7 +16,14 @@ class Person: Equatable, Hashable {
     var parents: Family?
     var families: Set<Family> = []
 
-    var peopleWidth: Int { Set(families.reduce([]) { $0 + Array($1.partners) }).count }
+    var peopleWidth: Int {
+//        print("oi")
+        var width = Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
+        if width == 0 {
+            width = 1
+        }
+        return max(width, families.reduce(0) { $0 + $1.childrenWidth })
+    }
 
     init(name: String) {
         self.name = name
@@ -43,7 +50,7 @@ class Person: Equatable, Hashable {
 
     private func add(family: Family) {
         families.insert(family)
-        
+
         for partner in family.partners {
             if !partner.families.contains(family) {
                 _ = partner.marry(with: family.partners)

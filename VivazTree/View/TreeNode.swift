@@ -13,7 +13,7 @@ class TreeNode: SCNNode {
     
     private let SPACING: Float = 0.01
     
-    init(person: Person) {
+    init(_ person: Person, ignoreWith partner: Person? = nil) {
         self.person = person
         super.init()
         
@@ -28,6 +28,8 @@ class TreeNode: SCNNode {
                 print(family.childrenCount)
                 
                 let partnersNode = SCNNode()
+                var partnersNodeWidth: Float = 0
+                var partnersNodeCenter: Float = 0
                 addChildNode(partnersNode)
                 
                 var partnersOffset: Float = 0
@@ -38,12 +40,27 @@ class TreeNode: SCNNode {
                     partnersOffset += personNode.width + SPACING
                 }
                 
+                if let otherPartner = partner, family.partners.contains(otherPartner) {
+                    continue
+                }
+                
                 for partner in Array(family.partners.filter { $0 != person }) {
-                    let partnerNode = CardNode(partner)
+                    
+                    if partner.hasChildrenWithout(person: person) {
+                        partnersNodeWidth = partnersNode.width
+                        partnersNodeCenter = partnersNode.centerX
+                    }
+                    
+                    let partnerNode = TreeNode(partner, ignoreWith: person)
                     partnersNode.addChildNode(partnerNode)
                     partnerNode.position.x = familyOffset + partnersOffset
                     
                     partnersOffset += partnerNode.width + SPACING
+                }
+                
+                if partnersNodeWidth == 0 {
+                    partnersNodeWidth = partnersNode.width
+                    partnersNodeCenter = partnersNode.centerX
                 }
                 
                 let childrenNode = SCNNode()
@@ -54,7 +71,7 @@ class TreeNode: SCNNode {
                     
                     var offset: Float = 0
                     for child in family.childrenSorted {
-                        let childTreeNode = TreeNode(person: child)
+                        let childTreeNode = TreeNode(child)
                         print(child.name, childTreeNode.width, offset)
                         childTreeNode.position.x = offset
                         offset += childTreeNode.width + SPACING
@@ -62,9 +79,9 @@ class TreeNode: SCNNode {
                     }
                 }
                 
-                if partnersNode.width > childrenNode.width {
-                    childrenNode.position.x = partnersNode.centerX
-                } else if partnersNode.width < childrenNode.width {
+                if partnersNodeWidth > childrenNode.width {
+                    childrenNode.position.x = partnersNodeCenter
+                } else if partnersNodeWidth < childrenNode.width {
                     partnersNode.position.x = childrenNode.centerX
                 }
                 

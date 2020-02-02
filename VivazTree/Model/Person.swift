@@ -59,6 +59,10 @@ class Person: Equatable, Hashable {
         }
     }
 
+    func hasChildrenWithout(person: Person) -> Bool {
+        !families.filter { !$0.partners.contains(person) }.isEmpty
+    }
+
     static func == (lhs: Person, rhs: Person) -> Bool { lhs.id == rhs.id }
 
     func hash(into hasher: inout Hasher) {

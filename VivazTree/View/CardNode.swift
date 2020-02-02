@@ -12,7 +12,7 @@ class CardNode: SCNNode {
     static var sample: CardNode { CardNode(card: .sample) }
     var card: Card
     
-    init(card: Card, width: CGFloat = 0.2, height: CGFloat = 0.2) {
+    init(card: Card, width: CGFloat = 0.05, height: CGFloat = 0.05) {
         self.card = card
         super.init()
         
@@ -34,9 +34,10 @@ class CardNode: SCNNode {
         planeNode.position = SCNVector3(0, 0, (length / 2) + 0.0001)
         addChildNode(planeNode)
         
-        let text = createTextNode(string: card.title)
-        text.position.z = 0.05
-        addChildNode(text)
+        let textNode = createTextNode(string: card.title)
+//        textNode.position.x = -textNode.width / 2
+        textNode.position.z = Float(length)
+        addChildNode(textNode)
     }
     
     convenience init(_ person: Person) {
@@ -54,7 +55,7 @@ class CardNode: SCNNode {
         text.firstMaterial?.diffuse.contents = UIColor.white
         
         let textNode = SCNNode(geometry: text)
-        let fontSize = Float(0.01)
+        let fontSize = Float(0.003)
         textNode.scale = SCNVector3(fontSize, fontSize, fontSize)
         
         return textNode

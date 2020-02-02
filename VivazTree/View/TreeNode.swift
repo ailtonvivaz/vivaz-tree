@@ -11,59 +11,68 @@ import SceneKit
 class TreeNode: SCNNode {
     let person: Person
     
+    private let SPACING: Float = 0.01
+    
     init(person: Person) {
         self.person = person
         super.init()
         
-        let cardwidth: CGFloat = 0.2
-        let cardHeight: CGFloat = 0.2
+        let cardHeight: Float = 0.1
         
-        let spacing: CGFloat = 0.2
-        let offset = Float((cardwidth + spacing) / 2)
-        
-        let even = person.partnersCount % 2 == 0
-        
-        let node = CardNode(person)
-        addChildNode(node)
-        
-        if even {
-            node.position.x = Float(-((cardwidth + spacing) / 2))
-        }
-        
-        print(person.name)
-        
-        for (i, family) in person.families.enumerated() {
-            print(family.childrenCount)
-//            for (i, partner) in Array(family.partners.filter({ $0 != person })).enumerated() {
-//                let node = CardNode.sample
-//                addChildNode(node)
-//                print(i)
-//
-//                if even {
-//                    let iEven = i % 2 == 0
-//                    if iEven {
-//                        node.position.x = (offset * Float(i + 1))
-//                    } else {
-//                        node.position.x = (-offset * Float(i + 2))
-//                    }
-//                } else {
-            ////                    node.position.x =
-//                }
-//            }
-            
-            let childrenWidth = cardwidth * CGFloat(family.childrenCount) + spacing * CGFloat(family.childrenCount - 1)
-            
-            let childrenNode = SCNNode()
-            childrenNode.position.y = -Float(cardHeight + spacing)
-            childrenNode.position.x = -Float(childrenWidth / 2)
-            addChildNode(childrenNode)
-            
-            for (i, child) in family.children.sorted(by: { $0.birthdate < $1.birthdate }).enumerated() {
-                let childTreeNode = TreeNode(person: child)
-                childTreeNode.position.x = Float(CGFloat(i) * (cardwidth + spacing))
-                childrenNode.addChildNode(childTreeNode)
+        if person.familiesCount == 0 {
+            let personNode = CardNode(person)
+            addChildNode(personNode)
+        } else {
+            var familyOffset: Float = 0
+            for (i, family) in person.familiesSorted.enumerated() {
+                print(family.childrenCount)
+                
+                let partnersNode = SCNNode()
+                addChildNode(partnersNode)
+                
+                var partnersOffset: Float = 0
+                
+                if i == 0 {
+                    let personNode = CardNode(person)
+                    partnersNode.addChildNode(personNode)
+                    partnersOffset += personNode.width + SPACING
+                }
+                
+                for partner in Array(family.partners.filter { $0 != person }) {
+                    let partnerNode = CardNode(partner)
+                    partnersNode.addChildNode(partnerNode)
+                    partnerNode.position.x = familyOffset + partnersOffset
+                    
+                    partnersOffset += partnerNode.width + SPACING
+                }
+                
+                let childrenNode = SCNNode()
+                if family.childrenCount > 0 {
+                    childrenNode.position.x = familyOffset
+                    childrenNode.position.y = -Float(cardHeight + SPACING)
+                    addChildNode(childrenNode)
+                    
+                    var offset: Float = 0
+                    for child in family.childrenSorted {
+                        let childTreeNode = TreeNode(person: child)
+                        print(child.name, childTreeNode.width, offset)
+                        childTreeNode.position.x = offset
+                        offset += childTreeNode.width + SPACING
+                        childrenNode.addChildNode(childTreeNode)
+                    }
+                }
+                
+                familyOffset += max(partnersNode.width, childrenNode.width) + SPACING
+                
+                if partnersNode.width > childrenNode.width {
+                    childrenNode.position.x = partnersNode.centerX
+                } else {
+                    partnersNode.position.x = childrenNode.centerX
+                }
             }
         }
+        
+        position.x = -width / 2
     }
     
     required init?(coder: NSCoder) {

@@ -17,14 +17,10 @@ class Person: Equatable, Hashable {
     var parents: Family?
     var families: Set<Family> = []
 
-    var peopleWidth: Int {
-        var width = Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
-        if width == 0 {
-            width = 1
-        }
-        return max(width, families.reduce(0) { $0 + $1.childrenWidth })
-    }
-    
+    var familiesSorted: [Family] { families.sorted(by: { $0.order < $1.order }) }
+
+    var familiesCount: Int { families.count }
+
     var partnersCount: Int {
         Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
     }
@@ -48,7 +44,7 @@ class Person: Equatable, Hashable {
             }
         }
 
-        let family = Family(partners: newPartners)
+        let family = Family(partners: newPartners, order: families.count)
         add(family: family)
         return family
     }
@@ -75,9 +71,9 @@ class Person: Equatable, Hashable {
         init(name: String) {
             self.person = Person(name: name)
         }
-        
+
         func birthdate(_ date: Date) -> Builder {
-            self.person.birthdate = date
+            person.birthdate = date
             return self
         }
 

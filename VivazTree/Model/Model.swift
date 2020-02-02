@@ -35,7 +35,9 @@ class Model {
                             Person.Builder(name: "Grayce Rosa")
                                 .birthdate(.from(year: 2000, month: 5, day: 27))
                                 .marry(children: [
-                                    Person.Builder(name: "Heloísa").build(),
+                                    Person.Builder(name: "Heloísa")
+                                        .birthdate(.from(year: 2018, month: 9, day: 27))
+                                        .build(),
                                 ])
                                 .build(),
                             Person.Builder(name: "Kasyllen Karla")
@@ -50,6 +52,7 @@ class Model {
                         ])
                         .marry(with: "Alexandre", children: [
                             Person.Builder(name: "Henrique")
+                                .birthdate(.from(year: 2019, month: 12, day: 14))
                                 .build(),
                         ])
                         .build(),
@@ -57,14 +60,17 @@ class Model {
                         .birthdate(.from(year: 1986, month: 6, day: 20))
                         .marry(children: [
                             Person.Builder(name: "Kayky")
+                                .birthdate(.from(year: 2007, month: 7, day: 15))
                                 .build(),
                         ])
                         .marry(children: [
                             Person.Builder(name: "Murilo")
+                                .birthdate(.from(year: 2008, month: 3, day: 21))
                                 .build(),
                         ])
                         .marry(with: "Jaqueline", children: [
                             Person.Builder(name: "Clailton Júnior")
+                                .birthdate(.from(year: 2016, month: 6, day: 24))
                                 .build(),
                         ])
                         .build(),
@@ -72,8 +78,10 @@ class Model {
                         .birthdate(.from(year: 1988, month: 5, day: 6))
                         .marry(with: "Eula", children: [
                             Person.Builder(name: "Wesllen")
+                                .birthdate(.from(year: 2011, month: 3, day: 31))
                                 .build(),
                             Person.Builder(name: "Wellignton")
+                                .birthdate(.from(year: 2015, month: 7, day: 12))
                                 .build(),
                         ])
                         .build(),
@@ -129,6 +137,5 @@ class Model {
             .build()
 
         self.person = person
-        print(person.peopleWidth)
     }
 }

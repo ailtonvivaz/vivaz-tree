@@ -11,21 +11,22 @@ import Foundation
 class Family: Equatable, Hashable {
     private let id = UUID()
     
+    let order: Int
     private(set) var partners: Set<Person>
     private(set) var children: Set<Person> = []
     
     var partnersCount: Int { partners.count }
     var childrenCount: Int { children.count }
     
-    var childrenWidth: Int {
-        var partnersChildren = 0
-        if partners.count > 1 {
-            partnersChildren = partners.reduce(0) { $0 + $1.families.filter { $0.partners.count == 1 }.reduce(0) { $0 + $1.childrenWidth } }
-        }
-        return children.reduce(0) { $0 + $1.peopleWidth } + partnersChildren
+    var eldest: Person? { childrenSorted.first }
+    var youngest: Person? { childrenSorted.last }
+
+    var childrenSorted: [Person] {
+        children.sorted(by: { $0.birthdate < $1.birthdate })
     }
     
-    init(partners: Set<Person>) {
+    init(partners: Set<Person>, order: Int) {
+        self.order = order
         self.partners = partners
     }
     

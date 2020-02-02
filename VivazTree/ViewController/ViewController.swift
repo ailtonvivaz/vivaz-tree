@@ -19,8 +19,6 @@ class ViewController: UIViewController {
         sceneView.delegate = self
         configureLighting()
         resetTrackingConfiguration()
-
-//        let family = Model.shared.family
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +70,7 @@ extension ViewController: ARSCNViewDelegate {
         
         // MARK: - TreeNode
         let treeNode = TreeNode(person: Model.shared.person)
-        treeNode.position.y = 1
+        treeNode.position.y = 0.5
         node.addChildNode(treeNode)
     }
 }

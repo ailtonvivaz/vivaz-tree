@@ -62,13 +62,13 @@ class TreeNode: SCNNode {
                     }
                 }
                 
-                familyOffset += max(partnersNode.width, childrenNode.width) + SPACING
-                
                 if partnersNode.width > childrenNode.width {
                     childrenNode.position.x = partnersNode.centerX
-                } else {
+                } else if partnersNode.width < childrenNode.width {
                     partnersNode.position.x = childrenNode.centerX
                 }
+                
+                familyOffset += max(partnersNode.width, childrenNode.width) + SPACING
             }
         }
         

@@ -54,20 +54,25 @@ extension ViewController: ARSCNViewDelegate {
         print(imageName)
 
         // MARK: - CardNode
-        let width: CGFloat = referenceImage.physicalSize.width
-        let height: CGFloat = referenceImage.physicalSize.height
+//        let width: CGFloat = referenceImage.physicalSize.width
+//        let height: CGFloat = referenceImage.physicalSize.height
 
-        let cardNode = CardNode(card: Card(image: imageName), width: width, height: height)
-        cardNode.eulerAngles.x = -.pi / 2
-        node.addChildNode(cardNode)
+//        let cardNode = CardNode(card: Card(image: imageName), width: width, height: height)
+//        cardNode.eulerAngles.x = -.pi / 2
+//        node.addChildNode(cardNode)
 
         // MARK: - HologramNode
-        if self.hologramNode != nil { return }
-
-        let hologramNode = HologramNode(initialVideo: "presentation")
-        hologramNode.eulerAngles.z = -.pi / 2
-
-        node.addChildNode(hologramNode)
-        self.hologramNode = hologramNode
+//        if self.hologramNode != nil { return }
+//
+//        let hologramNode = HologramNode(initialVideo: "presentation")
+//        hologramNode.eulerAngles.z = -.pi / 2
+//
+////        node.addChildNode(hologramNode)
+//        self.hologramNode = hologramNode
+        
+        // MARK: - TreeNode
+        let treeNode = TreeNode(person: Model.shared.person)
+        treeNode.position.y = 1
+        node.addChildNode(treeNode)
     }
 }

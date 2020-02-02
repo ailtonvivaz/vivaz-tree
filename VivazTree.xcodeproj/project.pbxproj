@@ -23,6 +23,8 @@
 		5E6A41FD23E4B60D0087EB07 /* presentation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */; };
 		5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434723E4EDE000748D36 /* HologramMaterial.swift */; };
 		5EC2434A23E6DAA100748D36 /* HologramNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434923E6DAA000748D36 /* HologramNode.swift */; };
+		5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434B23E6DF4400748D36 /* TreeNode.swift */; };
+		5EC2434E23E72FD700748D36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434D23E72FD700748D36 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = presentation.mp4; sourceTree = "<group>"; };
 		5EC2434723E4EDE000748D36 /* HologramMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramMaterial.swift; sourceTree = "<group>"; };
 		5EC2434923E6DAA000748D36 /* HologramNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramNode.swift; sourceTree = "<group>"; };
+		5EC2434B23E6DF4400748D36 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		5EC2434D23E72FD700748D36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				5E4F7BBD23E391710052D30F /* Assets */,
 				5E4F7BBF23E3917C0052D30F /* Support Files */,
 				5E00948823E0EC40005C5DD7 /* Info.plist */,
+				5EC2434D23E72FD700748D36 /* Date+Extension.swift */,
 			);
 			path = VivazTree;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			children = (
 				5E0094D823E25155005C5DD7 /* CardNode.swift */,
 				5EC2434923E6DAA000748D36 /* HologramNode.swift */,
+				5EC2434B23E6DF4400748D36 /* TreeNode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				5EC2434A23E6DAA100748D36 /* HologramNode.swift in Sources */,
 				5E4F7BC623E392AA0052D30F /* Model.swift in Sources */,
 				5E0094D123E23BF7005C5DD7 /* ChromaKeyMaterial.swift in Sources */,
+				5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */,
 				5E0094DB23E25176005C5DD7 /* Card.swift in Sources */,
 				5E00947F23E0EC3D005C5DD7 /* ViewController.swift in Sources */,
 				5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */,
@@ -227,6 +234,7 @@
 				5E4F7BC223E3925A0052D30F /* Family.swift in Sources */,
 				5E4F7BCA23E3C46C0052D30F /* TesteMaterial.swift in Sources */,
 				5E00947B23E0EC3D005C5DD7 /* AppDelegate.swift in Sources */,
+				5EC2434E23E72FD700748D36 /* Date+Extension.swift in Sources */,
 				5E4F7BC423E3926F0052D30F /* Person.swift in Sources */,
 				5E00947D23E0EC3D005C5DD7 /* SceneDelegate.swift in Sources */,
 			);

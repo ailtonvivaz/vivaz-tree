@@ -7,23 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7C81CBB1-F0E3-40DE-ABA8-94033DDFE074"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            condition = "name == &quot;Lorena&quot;"
-            continueAfterRunningActions = "No"
-            filePath = "VivazTree/Model/Person.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "peopleWidth"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B747F522-8C9D-4ABC-B80D-0DD66B98DDD5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

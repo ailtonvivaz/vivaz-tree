@@ -14,6 +14,9 @@ class Family: Equatable, Hashable {
     private(set) var partners: Set<Person>
     private(set) var children: Set<Person> = []
     
+    var partnersCount: Int { partners.count }
+    var childrenCount: Int { children.count }
+    
     var childrenWidth: Int {
         var partnersChildren = 0
         if partners.count > 1 {

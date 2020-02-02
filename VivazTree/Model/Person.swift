@@ -12,21 +12,26 @@ class Person: Equatable, Hashable {
     private let id = UUID()
 
     private(set) var name: String
+    private(set) var birthdate: Date
 
     var parents: Family?
     var families: Set<Family> = []
 
     var peopleWidth: Int {
-//        print("oi")
         var width = Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
         if width == 0 {
             width = 1
         }
         return max(width, families.reduce(0) { $0 + $1.childrenWidth })
     }
+    
+    var partnersCount: Int {
+        Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
+    }
 
-    init(name: String) {
+    init(name: String, birthdate: Date = Date()) {
         self.name = name
+        self.birthdate = birthdate
     }
 
     func marry(with person: Person) -> Family {
@@ -69,6 +74,11 @@ class Person: Equatable, Hashable {
 
         init(name: String) {
             self.person = Person(name: name)
+        }
+        
+        func birthdate(_ date: Date) -> Builder {
+            self.person.birthdate = date
+            return self
         }
 
         func marry(children: Set<Person>) -> Builder {

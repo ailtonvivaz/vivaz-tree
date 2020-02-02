@@ -14,14 +14,14 @@
 		5E00948423E0EC40005C5DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E00948323E0EC40005C5DD7 /* Assets.xcassets */; };
 		5E00948723E0EC40005C5DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E00948523E0EC40005C5DD7 /* LaunchScreen.storyboard */; };
 		5E0094D123E23BF7005C5DD7 /* ChromaKeyMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0094D023E23BF7005C5DD7 /* ChromaKeyMaterial.swift */; };
-		5E0094D523E24322005C5DD7 /* teste.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E0094D423E24322005C5DD7 /* teste.mp4 */; };
-		5E0094D723E2464C005C5DD7 /* video_lupita.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 5E0094D623E2464C005C5DD7 /* video_lupita.MOV */; };
 		5E0094D923E25155005C5DD7 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0094D823E25155005C5DD7 /* CardNode.swift */; };
 		5E0094DB23E25176005C5DD7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0094DA23E25176005C5DD7 /* Card.swift */; };
 		5E4F7BC223E3925A0052D30F /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC123E3925A0052D30F /* Family.swift */; };
 		5E4F7BC423E3926F0052D30F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC323E3926F0052D30F /* Person.swift */; };
 		5E4F7BC623E392AA0052D30F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC523E392AA0052D30F /* Model.swift */; };
-		5E4F7BC823E3AC470052D30F /* eu.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC723E3AC470052D30F /* eu.mp4 */; };
+		5E4F7BCA23E3C46C0052D30F /* TesteMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC923E3C46C0052D30F /* TesteMaterial.swift */; };
+		5E6A41FD23E4B60D0087EB07 /* presentation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */; };
+		5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434723E4EDE000748D36 /* HologramMaterial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,14 +34,14 @@
 		5E00948623E0EC40005C5DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E00948823E0EC40005C5DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E0094D023E23BF7005C5DD7 /* ChromaKeyMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaKeyMaterial.swift; sourceTree = "<group>"; };
-		5E0094D423E24322005C5DD7 /* teste.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = teste.mp4; sourceTree = "<group>"; };
-		5E0094D623E2464C005C5DD7 /* video_lupita.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_lupita.MOV; sourceTree = "<group>"; };
 		5E0094D823E25155005C5DD7 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		5E0094DA23E25176005C5DD7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5E4F7BC123E3925A0052D30F /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		5E4F7BC323E3926F0052D30F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5E4F7BC523E392AA0052D30F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		5E4F7BC723E3AC470052D30F /* eu.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = eu.mp4; sourceTree = "<group>"; };
+		5E4F7BC923E3C46C0052D30F /* TesteMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteMaterial.swift; sourceTree = "<group>"; };
+		5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = presentation.mp4; sourceTree = "<group>"; };
+		5EC2434723E4EDE000748D36 /* HologramMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramMaterial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +115,7 @@
 		5E4F7BBD23E391710052D30F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5E4F7BC723E3AC470052D30F /* eu.mp4 */,
-				5E0094D623E2464C005C5DD7 /* video_lupita.MOV */,
-				5E0094D423E24322005C5DD7 /* teste.mp4 */,
+				5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -126,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				5E0094D023E23BF7005C5DD7 /* ChromaKeyMaterial.swift */,
+				5E4F7BC923E3C46C0052D30F /* TesteMaterial.swift */,
+				5EC2434723E4EDE000748D36 /* HologramMaterial.swift */,
 			);
 			path = Material;
 			sourceTree = "<group>";
@@ -200,12 +200,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4F7BC823E3AC470052D30F /* eu.mp4 in Resources */,
 				5E00948723E0EC40005C5DD7 /* LaunchScreen.storyboard in Resources */,
 				5E00948423E0EC40005C5DD7 /* Assets.xcassets in Resources */,
-				5E0094D723E2464C005C5DD7 /* video_lupita.MOV in Resources */,
+				5E6A41FD23E4B60D0087EB07 /* presentation.mp4 in Resources */,
 				5E00948223E0EC3D005C5DD7 /* Main.storyboard in Resources */,
-				5E0094D523E24322005C5DD7 /* teste.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +218,10 @@
 				5E0094D123E23BF7005C5DD7 /* ChromaKeyMaterial.swift in Sources */,
 				5E0094DB23E25176005C5DD7 /* Card.swift in Sources */,
 				5E00947F23E0EC3D005C5DD7 /* ViewController.swift in Sources */,
+				5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */,
 				5E0094D923E25155005C5DD7 /* CardNode.swift in Sources */,
 				5E4F7BC223E3925A0052D30F /* Family.swift in Sources */,
+				5E4F7BCA23E3C46C0052D30F /* TesteMaterial.swift in Sources */,
 				5E00947B23E0EC3D005C5DD7 /* AppDelegate.swift in Sources */,
 				5E4F7BC423E3926F0052D30F /* Person.swift in Sources */,
 				5E00947D23E0EC3D005C5DD7 /* SceneDelegate.swift in Sources */,

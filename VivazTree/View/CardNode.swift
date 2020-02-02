@@ -30,6 +30,7 @@ class CardNode: SCNNode {
         
         plane.firstMaterial = material
         
+//        geometry = plane
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(0, 0, (length / 2) + 0.0001)
         addChildNode(planeNode)

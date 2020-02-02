@@ -3,4 +3,39 @@
    uuid = "84FBFB33-F058-4DBE-80B2-53D98E17CBA1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C81CBB1-F0E3-40DE-ABA8-94033DDFE074"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            condition = "name == &quot;Lorena&quot;"
+            continueAfterRunningActions = "No"
+            filePath = "VivazTree/Model/Person.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "peopleWidth"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B747F522-8C9D-4ABC-B80D-0DD66B98DDD5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VivazTree/Material/TesteMaterial.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "init(backgroundColor:thresholdSensitivity:smoothing:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

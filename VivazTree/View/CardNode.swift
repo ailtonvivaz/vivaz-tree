@@ -34,24 +34,6 @@ class CardNode: SCNNode {
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(0, 0, (length / 2) + 0.0001)
         addChildNode(planeNode)
-        
-        let textNode = SCNNode()
-        let textGeometry = SCNText(string: "Lupita", extrusionDepth: 0.1)
-
-        //2. Set The Colour Of Our Text, Our Font & It's Size
-        textGeometry.firstMaterial?.diffuse.contents = UIColor.orange
-        textGeometry.firstMaterial?.isDoubleSided = true
-        textGeometry.font = .systemFont(ofSize: 1)
-
-        //3. Set It's Flatness To 0 So It Looks Smooth
-        textGeometry.flatness = 0
-
-        //4. Set The SCNNode's Geometry
-        textNode.geometry = textGeometry
-
-        //5. Set It's Position
-        textNode.position = SCNVector3(0, 0, -1)
-        addChildNode(textNode)
     }
     
     required init?(coder: NSCoder) {

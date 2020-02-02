@@ -12,7 +12,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
 
-    var videoNode: SCNNode?
+    var hologramNode: HologramNode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,65 +53,21 @@ extension ViewController: ARSCNViewDelegate {
         let imageName = referenceImage.name ?? "no name"
         print(imageName)
 
-        let width: CGFloat = 2 //referenceImage.physicalSize.width
-        let height: CGFloat = 0.5625 * width //referenceImage.physicalSize.height
+        // MARK: - CardNode
+        let width: CGFloat = referenceImage.physicalSize.width
+        let height: CGFloat = referenceImage.physicalSize.height
 
-//        let cardNode = CardNode(card: Card(image: imageName), width: width, height: height)
-//        cardNode.eulerAngles.x = -.pi / 2
-//        node.addChildNode(cardNode)
+        let cardNode = CardNode(card: Card(image: imageName), width: width, height: height)
+        cardNode.eulerAngles.x = -.pi / 2
+        node.addChildNode(cardNode)
 
-        if self.videoNode != nil { return }
+        // MARK: - HologramNode
+        if self.hologramNode != nil { return }
 
-        // Get Video URL and create AV Player
-        let filePath = Bundle.main.path(forResource: "presentation", ofType: "mp4")
-        let videoURL = NSURL(fileURLWithPath: filePath!)
-        let player = AVPlayer(url: videoURL as URL)
+        let hologramNode = HologramNode(initialVideo: "presentation")
+        hologramNode.eulerAngles.z = -.pi / 2
 
-        // Create SceneKit videoNode to hold the spritekit scene.
-        let videoNode = SCNNode()
-
-        // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
-        let plane = SCNPlane(width: width, height: height)
-        videoNode.geometry = plane
-        videoNode.eulerAngles = SCNVector3(0, 0, -CGFloat.pi / 2)
-
-        //Set the video AVPlayer as the contents of the video node's material.
-        videoNode.geometry?.firstMaterial?.diffuse.contents = player
-        videoNode.geometry?.firstMaterial?.isDoubleSided = true
-
-        // Alpha transparancy stuff
-        let material = HologramMaterial()
-        material.diffuse.contents = player
-
-        material.setValue(SCNMaterialProperty(contents: UIImage(named: "noise")!), forKey: "noiseTexture")
-        
-        videoNode.geometry!.materials = [material]
-        
-        let revealAnimation = CABasicAnimation(keyPath: "revealage")
-        revealAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        revealAnimation.duration = 3
-        revealAnimation.fromValue = 0.0
-        revealAnimation.toValue = 1.0
-        revealAnimation.repeatCount = .greatestFiniteMagnitude
-        let scnRevealAnimation = SCNAnimation(caAnimation: revealAnimation)
-        material.addAnimation(scnRevealAnimation, forKey: "Reveal")
-//        videoNode.opacity = 0.9
-        
-
-        //video does not start without delaying the player
-        //playing the video before just results in [SceneKit] Error: Cannot get pixel buffer (CVPixelBufferRef)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
-            player.seek(to: CMTimeMakeWithSeconds(1, preferredTimescale: 1000))
-            player.play()
-        }
-
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
-            player.seek(to: CMTime.zero)
-            player.play()
-        }
-
-        node.addChildNode(videoNode)
-
-        self.videoNode = videoNode
+        node.addChildNode(hologramNode)
+        self.hologramNode = hologramNode
     }
 }

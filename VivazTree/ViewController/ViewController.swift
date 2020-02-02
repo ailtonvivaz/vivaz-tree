@@ -50,6 +50,8 @@ extension ViewController: ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         let imageName = referenceImage.name ?? "no name"
         print(imageName)
+        
+        renderer.showsStatistics = true
 
         // MARK: - CardNode
 //        let width: CGFloat = referenceImage.physicalSize.width
@@ -60,17 +62,19 @@ extension ViewController: ARSCNViewDelegate {
 //        node.addChildNode(cardNode)
 
         // MARK: - HologramNode
-//        if self.hologramNode != nil { return }
-//
-//        let hologramNode = HologramNode(initialVideo: "presentation")
-//        hologramNode.eulerAngles.z = -.pi / 2
-//
-////        node.addChildNode(hologramNode)
-//        self.hologramNode = hologramNode
+        if self.hologramNode != nil { return }
+
+        let hologramNode = HologramNode(initialVideo: "presentation")
+        hologramNode.eulerAngles.z = -.pi / 2
+//        hologramNode.opacity = 0.8
+
+        node.addChildNode(hologramNode)
+        self.hologramNode = hologramNode
         
         // MARK: - TreeNode
-        let treeNode = TreeNode(Model.shared.person)
-        treeNode.position.y = 0.5
-        node.addChildNode(treeNode)
+//        let treeNode = TreeNode(Model.shared.person)
+//        node.addChildNode(treeNode)
+//        treeNode.position.y = hologramNode.boundingBox.max.x + treeNode.height + 0.1
     }
+
 }

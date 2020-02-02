@@ -58,44 +58,26 @@ class HologramMaterial: SCNMaterial {
 
         let fragmentShader =
             """
-            #pragma arguments
-
-            float revealage;
-            texture2d<float, access::sample> noiseTexture;
-
-            #pragma declarations
-            float div(float number1, float number2) {
-                return number1 / number2;
-            }
-
-            #pragma transparent
-            #pragma body
-
-            const float edgeWidth = 0.02;
-            const float edgeBrightness = 2;
-            const float3 innerColor = float3(0.4, 0.8, 1);
-            const float3 outerColor = float3(0, 0.5, 1);
-            const float noiseScale = 3;
-
-            constexpr sampler noiseSampler(filter::linear, address::repeat);
-            float2 noiseCoords = noiseScale * _surface.ambientTexcoord;
-            float noiseValue = noiseTexture.sample(noiseSampler, noiseCoords).r;
-
-            if (noiseValue > revealage) {
-             discard_fragment();
-            }
-
-            float edgeDist = revealage - noiseValue;
-            if (edgeDist < edgeWidth) {
-                float t = div(edgeDist, edgeWidth);
-                float3 edgeColor = edgeBrightness * mix(outerColor, innerColor, t);
-                _output.color.rgb = edgeColor;
+            _output.color.rgb = vec3(0.3, 0.5, 1.0) * _output.color.rgb;
+            if (_output.color.a > 0.0) {
+                _output.color.a = 0.95;
             }
             """
-
+        
+        let geometryShader =
+            """
+            uniform float Amplitude = 0.1;
+             
+            _geometry.position +=
+                _geometry.normal *
+                (Amplitude*_geometry.position.y*_geometry.position.x) *
+                sin(1.0 * u_time);
+            """
+        
         shaderModifiers = [
             .surface: surfaceShader,
             .fragment: fragmentShader,
+//            .geometry: geometryShader,
         ]
     }
 
@@ -106,7 +88,7 @@ class HologramMaterial: SCNMaterial {
     //setting background color to be keyed out
     private func didSetBackgroundColor() {
         //getting pixel from background color
-        let rgb = backgroundColor.cgColor.components!.map{Float($0)}
+        let rgb = backgroundColor.cgColor.components!.map { Float($0) }
         let vector = SCNVector3(x: rgb[0], y: rgb[1], z: rgb[2])
         setValue(vector, forKey: "c_colorToReplace")
     }

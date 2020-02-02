@@ -8,6 +8,7 @@
 
 import SceneKit
 import AVFoundation
+
 class HologramNode: SCNNode {
     var video: String { didSet {} }
 
@@ -21,7 +22,7 @@ class HologramNode: SCNNode {
         let videoURL = NSURL(fileURLWithPath: filePath!)
         let player = AVPlayer(url: videoURL as URL)
         
-        let width: CGFloat = 2
+        let width: CGFloat = 0.5
         let height: CGFloat = 0.5625 * width
 
         // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
@@ -31,26 +32,20 @@ class HologramNode: SCNNode {
 //        videoNode.eulerAngles = SCNVector3(0, 0, -CGFloat.pi / 2)
 
         //Set the video AVPlayer as the contents of the video node's material.
-        geometry?.firstMaterial?.diffuse.contents = player
-        geometry?.firstMaterial?.isDoubleSided = true
+//        geometry?.firstMaterial?.diffuse.contents = player
+//        geometry?.firstMaterial?.isDoubleSided = true
 
         // Alpha transparancy stuff
         let material = HologramMaterial()
         material.diffuse.contents = player
 
-        material.setValue(SCNMaterialProperty(contents: UIImage(named: "noise")!), forKey: "noiseTexture")
+        material.reflective.contents = UIColor(red: 0, green: 0.764, blue: 1, alpha: 1)
+        material.reflective.intensity = 3
+//        material.transparent.contents = UIColor.black.withAlphaComponent(0.3)
+        material.transparencyMode = .default
+        material.fresnelExponent = 40
 
         geometry!.materials = [material]
-
-        let revealAnimation = CABasicAnimation(keyPath: "revealage")
-        revealAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        revealAnimation.duration = 3
-        revealAnimation.fromValue = 0.0
-        revealAnimation.toValue = 1.0
-        revealAnimation.repeatCount = .greatestFiniteMagnitude
-        let scnRevealAnimation = SCNAnimation(caAnimation: revealAnimation)
-        material.addAnimation(scnRevealAnimation, forKey: "Reveal")
-        //        videoNode.opacity = 0.9
 
         //video does not start without delaying the player
         //playing the video before just results in [SceneKit] Error: Cannot get pixel buffer (CVPixelBufferRef)

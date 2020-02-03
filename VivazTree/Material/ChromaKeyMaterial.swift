@@ -21,7 +21,7 @@ public class ChromaKeyMaterial: SCNMaterial {
         didSet { didSetSmoothing() }
     }
 
-    public init(backgroundColor: UIColor = .green, thresholdSensitivity: Float = 0.50, smoothing: Float = 0.001) {
+    public init(backgroundColor: UIColor = .green, thresholdSensitivity: Float = 0.50, smoothing: Float = 0.1) {
         self.backgroundColor = backgroundColor
         self.thresholdSensitivity = thresholdSensitivity
         self.smoothing = smoothing

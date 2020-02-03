@@ -19,6 +19,9 @@ class ViewController: UIViewController {
         sceneView.delegate = self
         configureLighting()
         resetTrackingConfiguration()
+
+        sceneView.showsStatistics = true
+//        sceneView.debugOptions = [.showBoundingBoxes, .showPhysicsFields]
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +53,9 @@ extension ViewController: ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         let imageName = referenceImage.name ?? "no name"
         print(imageName)
-        
-        renderer.showsStatistics = true
 
         // MARK: - CardNode
+
 //        let width: CGFloat = referenceImage.physicalSize.width
 //        let height: CGFloat = referenceImage.physicalSize.height
 
@@ -62,19 +64,20 @@ extension ViewController: ARSCNViewDelegate {
 //        node.addChildNode(cardNode)
 
         // MARK: - HologramNode
+
         if self.hologramNode != nil { return }
 
-        let hologramNode = HologramNode(initialVideo: "presentation")
-        hologramNode.eulerAngles.z = -.pi / 2
-//        hologramNode.opacity = 0.8
+        let hologramNode = HologramNode(initialVideo: "presentation", height: 0.5)
+//        hologramNode.eulerAngles.z = -.pi / 2
+//        hologramNode.position.y = -0.1
 
         node.addChildNode(hologramNode)
         self.hologramNode = hologramNode
-        
+
         // MARK: - TreeNode
+
 //        let treeNode = TreeNode(Model.shared.person)
 //        node.addChildNode(treeNode)
 //        treeNode.position.y = hologramNode.boundingBox.max.x + treeNode.height + 0.1
     }
-
 }

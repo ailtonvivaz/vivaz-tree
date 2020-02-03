@@ -26,6 +26,7 @@
 		5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434B23E6DF4400748D36 /* TreeNode.swift */; };
 		5EC2434E23E72FD700748D36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434D23E72FD700748D36 /* Date+Extension.swift */; };
 		5EC2435023E737FD00748D36 /* SCNNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434F23E737FD00748D36 /* SCNNode+Extension.swift */; };
+		5EC2435323E7943000748D36 /* tech_pedestal.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5EC2435223E7943000748D36 /* tech_pedestal.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		5EC2434B23E6DF4400748D36 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		5EC2434D23E72FD700748D36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		5EC2434F23E737FD00748D36 /* SCNNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extension.swift"; sourceTree = "<group>"; };
+		5EC2435223E7943000748D36 /* tech_pedestal.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tech_pedestal.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		5E4F7BBD23E391710052D30F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5EC2435223E7943000748D36 /* tech_pedestal.usdz */,
 				5E6A41FC23E4B60D0087EB07 /* presentation.mp4 */,
 			);
 			path = Assets;
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC2435323E7943000748D36 /* tech_pedestal.usdz in Resources */,
 				5E00948723E0EC40005C5DD7 /* LaunchScreen.storyboard in Resources */,
 				5E00948423E0EC40005C5DD7 /* Assets.xcassets in Resources */,
 				5E6A41FD23E4B60D0087EB07 /* presentation.mp4 in Resources */,

@@ -14,38 +14,37 @@ class HologramNode: SCNNode {
 
 //    private var player: AVPlayer
 
-    init(initialVideo: String) {
+    init(initialVideo: String, height: CGFloat) {
         video = initialVideo
         super.init()
+
+        // MARK: - PedestalNode
+
+        let url = Bundle.main.url(forResource: "tech_pedestal", withExtension: "usdz")!
+        let pedestalNode = SCNReferenceNode(url: url)!
+        pedestalNode.load()
+        let scale = height / 40
+        pedestalNode.scale = SCNVector3(scale, scale, scale)
+        addChildNode(pedestalNode)
 
         let filePath = Bundle.main.path(forResource: initialVideo, ofType: "mp4")
         let videoURL = NSURL(fileURLWithPath: filePath!)
         let player = AVPlayer(url: videoURL as URL)
         
-        let width: CGFloat = 0.5
-        let height: CGFloat = 0.5625 * width
+        let width: CGFloat = height / 1.7778
 
         // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
-        let plane = SCNPlane(width: width, height: height)
-        geometry = plane
-        position.y = Float(width / 2) // SCNVector3(0, height / 2, 0)
-//        videoNode.eulerAngles = SCNVector3(0, 0, -CGFloat.pi / 2)
-
-        //Set the video AVPlayer as the contents of the video node's material.
-//        geometry?.firstMaterial?.diffuse.contents = player
-//        geometry?.firstMaterial?.isDoubleSided = true
+        let plane = SCNPlane(width: height, height: width)
+        let videoNode = SCNNode(geometry: plane)
+        addChildNode(videoNode)
+        videoNode.position.y = Float(height / 2) + Float(height / 25)
+        videoNode.eulerAngles.z = -.pi / 2
 
         // Alpha transparancy stuff
         let material = HologramMaterial()
         material.diffuse.contents = player
 
-        material.reflective.contents = UIColor(red: 0, green: 0.764, blue: 1, alpha: 1)
-        material.reflective.intensity = 3
-//        material.transparent.contents = UIColor.black.withAlphaComponent(0.3)
-        material.transparencyMode = .default
-        material.fresnelExponent = 40
-
-        geometry!.materials = [material]
+        plane.materials = [material]
 
         //video does not start without delaying the player
         //playing the video before just results in [SceneKit] Error: Cannot get pixel buffer (CVPixelBufferRef)

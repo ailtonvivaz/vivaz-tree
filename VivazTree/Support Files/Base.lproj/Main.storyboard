@@ -18,13 +18,42 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGM-Z5-Njo">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                             </arscnView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nzL-aL-AmB">
+                                <rect key="frame" x="1154" y="377" width="40" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pR3-VC-fCD">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="cYN-59-8e4"/>
+                                            <constraint firstAttribute="height" constant="40" id="kIU-Fw-kCe"/>
+                                        </constraints>
+                                        <state key="normal" image="play" catalog="system"/>
+                                        <connections>
+                                            <action selector="tapNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEg-u2-rhP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOG-TP-zAZ">
+                                        <rect key="frame" x="0.0" y="40" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2GI-na-nQV"/>
+                                            <constraint firstAttribute="width" constant="40" id="YaN-d2-Cov"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.2.circlepath" catalog="system"/>
+                                        <connections>
+                                            <action selector="tapWait:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eP0-px-00F"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="UGM-Z5-Njo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Ja-hb-WCV"/>
                             <constraint firstItem="UGM-Z5-Njo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3YB-Rp-Z4r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nzL-aL-AmB" secondAttribute="trailing" id="9IK-DT-8Pc"/>
                             <constraint firstItem="UGM-Z5-Njo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eso-J8-dEe"/>
                             <constraint firstItem="UGM-Z5-Njo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="SN6-ec-2Cy"/>
+                            <constraint firstItem="nzL-aL-AmB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gEa-6b-tKx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,4 +66,8 @@
             <point key="canvasLocation" x="137.1859296482412" y="137.41007194244605"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.2.circlepath" catalog="system" width="64" height="50"/>
+        <image name="play" catalog="system" width="60" height="64"/>
+    </resources>
 </document>

@@ -14,6 +14,9 @@ class ViewController: UIViewController {
 
     var hologramNode: HologramNode?
 
+    var videos: [HologramVideo] = [.intro, .presentation, .start, .instructions]
+    var videoIndex = -1
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
@@ -21,7 +24,6 @@ class ViewController: UIViewController {
         resetTrackingConfiguration()
 
         sceneView.showsStatistics = true
-        let a = Model.shared
 //        sceneView.debugOptions = [.showBoundingBoxes, .showPhysicsFields]
     }
 
@@ -49,11 +51,29 @@ class ViewController: UIViewController {
 
     func loadTree() {
         guard let hologramNode = self.hologramNode else { return }
+
         // MARK: - TreeNode
 
         let treeNode = TreeNode(Model.shared.person)
         hologramNode.addChildNode(treeNode)
         treeNode.position.y = hologramNode.boundingBox.max.y + treeNode.height
+    }
+
+    @IBAction func tapNext(_ sender: Any) {
+        if videoIndex == -1 {
+            videoIndex += 1
+            hologramNode?.start()
+            loadTree()
+        } else if videos.count > videoIndex {
+            if videoIndex == 2 {
+            }
+            videoIndex += 1
+            hologramNode?.video = videos[videoIndex]
+        }
+    }
+
+    @IBAction func tapWait(_ sender: Any) {
+        hologramNode?.video = .waiting
     }
 }
 
@@ -64,7 +84,7 @@ extension ViewController: ARSCNViewDelegate {
         let imageName = referenceImage.name ?? "no name"
         print(imageName)
 
-        if imageName == "jaque" {
+        if imageName == "eye" {
             // MARK: - HologramNode
 
             if self.hologramNode != nil { return }
@@ -79,7 +99,7 @@ extension ViewController: ARSCNViewDelegate {
             let width: CGFloat = referenceImage.physicalSize.width
             let height: CGFloat = referenceImage.physicalSize.height
 
-            let cardNode = CardNode(card: Card(image: "Photos/\(imageName)"), width: width, height: height)
+            let cardNode = CardNode(card: Card(image: "Photos/\(imageName)", tree: true), width: width, height: height)
             cardNode.eulerAngles.x = -.pi / 2
             node.addChildNode(cardNode)
         }

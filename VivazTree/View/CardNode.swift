@@ -26,7 +26,7 @@ class CardNode: SCNNode {
         let plane = SCNPlane(width: width - 2 * radius, height: height - 2 * radius)
         let material = SCNMaterial()
         
-        if let filePath = Bundle.main.path(forResource: card.videoName, ofType: "mov") {
+        if card.tree, let filePath = Bundle.main.path(forResource: card.videoName, ofType: "mov") {
             let url = URL(fileURLWithPath: filePath)
             let player = AVPlayer(url: url)
             material.diffuse.contents = player

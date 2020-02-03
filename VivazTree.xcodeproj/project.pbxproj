@@ -138,7 +138,7 @@
 		5E4F7BBD23E391710052D30F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5EE350DC23E84A63003C7713 /* Videos */,
+				5EE350DC23E84A63003C7713 /* Hologram */,
 				5EC2435223E7943000748D36 /* tech_pedestal.usdz */,
 			);
 			path = Assets;
@@ -175,7 +175,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		5EE350DC23E84A63003C7713 /* Videos */ = {
+		5EE350DC23E84A63003C7713 /* Hologram */ = {
 			isa = PBXGroup;
 			children = (
 				5EE350E023E84A6F003C7713 /* intro.mp4 */,
@@ -185,7 +185,7 @@
 				5EE350EA23E84D31003C7713 /* waiting_no_song.mp4 */,
 				5EE350E923E84D31003C7713 /* waiting.mp4 */,
 			);
-			path = Videos;
+			path = Hologram;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

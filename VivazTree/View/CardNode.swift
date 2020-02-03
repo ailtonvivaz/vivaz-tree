@@ -41,7 +41,7 @@ class CardNode: SCNNode {
     }
     
     convenience init(_ person: Person, width: CGFloat = 0.05, height: CGFloat = 0.05) {
-        self.init(card: Card(image: person.imageName ?? "eu", title: person.name, description: ""), width: width, height: height)
+        self.init(card: Card(image: person.imageName != nil ? "Photos/\(person.imageName!)" : "eu", title: person.name, description: ""), width: width, height: height)
     }
     
     required init?(coder: NSCoder) {

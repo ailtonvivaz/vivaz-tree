@@ -62,12 +62,14 @@ class Model {
                                 .birthdate(.from(year: 2014, month: 8, day: 17))
                                 .build(),
                         ])
-                        .marry(with: "Alexandre", children: [
-                            Person.Builder(name: "Henrique")
-                                .imageName("henrique")
-                                .birthdate(.from(year: 2019, month: 12, day: 14))
-                                .build(),
-                        ])
+                        .marry(with: Person.Builder(name: "Alexandre")
+                            .imageName("xande")
+                            .build(), children: [
+                                Person.Builder(name: "Henrique")
+                                    .imageName("henrique")
+                                    .birthdate(.from(year: 2019, month: 12, day: 14))
+                                    .build(),
+                            ])
                         .build(),
                     Person.Builder(name: "Clailton")
                         .imageName("clailton")
@@ -84,7 +86,9 @@ class Model {
                                 .birthdate(.from(year: 2008, month: 3, day: 21))
                                 .build(),
                         ])
-                        .marry(with: "Jaqueline", children: [
+                        .marry(with: Person.Builder(name: "Jaqueline")
+                            .imageName("jaque")
+                            .build(), children: [
                             Person.Builder(name: "Clailton Júnior")
                                 .imageName("clailtinho")
                                 .birthdate(.from(year: 2016, month: 6, day: 24))

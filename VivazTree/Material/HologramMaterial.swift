@@ -59,25 +59,14 @@ class HologramMaterial: SCNMaterial {
         let fragmentShader =
             """
             _output.color.rgb = vec3(0.3, 0.5, 1.0) * _output.color.rgb;
-            if (_output.color.a > 0.0) {
+            if (_output.color.a == 1.0) {
                 _output.color.a = 0.95;
             }
-            """
-        
-        let geometryShader =
-            """
-            uniform float Amplitude = 0.1;
-             
-            _geometry.position +=
-                _geometry.normal *
-                (Amplitude*_geometry.position.y*_geometry.position.x) *
-                sin(1.0 * u_time);
             """
         
         shaderModifiers = [
             .surface: surfaceShader,
             .fragment: fragmentShader,
-//            .geometry: geometryShader,
         ]
     }
 

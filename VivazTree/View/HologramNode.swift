@@ -6,16 +6,37 @@
 //  Copyright © 2020 Veevaz. All rights reserved.
 //
 
-import SceneKit
 import AVFoundation
+import SceneKit
+
+enum HologramVideo: String {
+    case intro
+    case presentation
+    case start
+    case instructions
+    case waitingNoSong = "waiting_no_song"
+    case waiting
+
+    var url: URL {
+        let filePath = Bundle.main.path(forResource: rawValue, ofType: "mp4")!
+        return URL(fileURLWithPath: filePath)
+    }
+}
 
 class HologramNode: SCNNode {
-    var video: String { didSet {} }
+    var video: HologramVideo = .intro {
+        didSet {
+            didSetVideo()
+        }
+    }
+
+    private var player: AVPlayer!
+
+    private let material = HologramMaterial()
 
 //    private var player: AVPlayer
 
-    init(initialVideo: String, height: CGFloat) {
-        video = initialVideo
+    init(height: CGFloat) {
         super.init()
 
         // MARK: - PedestalNode
@@ -27,10 +48,6 @@ class HologramNode: SCNNode {
         pedestalNode.scale = SCNVector3(scale, scale, scale)
         addChildNode(pedestalNode)
 
-        let filePath = Bundle.main.path(forResource: initialVideo, ofType: "mp4")
-        let videoURL = NSURL(fileURLWithPath: filePath!)
-        let player = AVPlayer(url: videoURL as URL)
-        
         let width: CGFloat = height / 1.7778
 
         // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
@@ -40,30 +57,41 @@ class HologramNode: SCNNode {
         videoNode.position.y = Float(height / 2) + Float(height / 25)
         videoNode.eulerAngles.z = -.pi / 2
 
-        // Alpha transparancy stuff
-        let material = HologramMaterial()
-        material.diffuse.contents = player
-
         plane.materials = [material]
 
-        //video does not start without delaying the player
-        //playing the video before just results in [SceneKit] Error: Cannot get pixel buffer (CVPixelBufferRef)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
-            player.seek(to: CMTimeMakeWithSeconds(1, preferredTimescale: 1000))
-            player.play()
-        }
-
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
-            player.seek(to: CMTime.zero)
-            player.play()
+        defer {
+            self.video = .intro
         }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func didSetVideo() {
-        
+
+    func didSetVideo() {
+        player = AVPlayer(url: video.url)
+        material.diffuse.contents = player
+        DispatchQueue.main.async {
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
+        }
+
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+            NotificationCenter.default.removeObserver(self)
+            self.loopingWaiting()
+        }
+    }
+
+    func loopingWaiting() {
+        player = AVPlayer(url: HologramVideo.waitingNoSong.url)
+        material.diffuse.contents = player
+        DispatchQueue.main.async {
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
+        }
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
+        }
     }
 }

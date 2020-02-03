@@ -67,7 +67,7 @@ extension ViewController: ARSCNViewDelegate {
 
         if self.hologramNode != nil { return }
 
-        let hologramNode = HologramNode(initialVideo: "presentation", height: 0.5)
+        let hologramNode = HologramNode(height: 0.1)
 //        hologramNode.eulerAngles.z = -.pi / 2
 //        hologramNode.position.y = -0.1
 
@@ -78,6 +78,6 @@ extension ViewController: ARSCNViewDelegate {
 
         let treeNode = TreeNode(Model.shared.person)
         node.addChildNode(treeNode)
-        treeNode.position.y = hologramNode.boundingBox.max.x + treeNode.height + 0.1
+        treeNode.position.y = hologramNode.boundingBox.max.y + treeNode.height
     }
 }

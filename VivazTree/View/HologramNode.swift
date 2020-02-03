@@ -31,13 +31,14 @@ class HologramNode: SCNNode {
     }
 
     private var player: AVPlayer!
-
     private let material = HologramMaterial()
+    private var personHeight: CGFloat = 0
 
 //    private var player: AVPlayer
 
     init(height: CGFloat) {
         super.init()
+        self.personHeight = height
 
         // MARK: - PedestalNode
 
@@ -47,21 +48,6 @@ class HologramNode: SCNNode {
         let scale = height / 40
         pedestalNode.scale = SCNVector3(scale, scale, scale)
         addChildNode(pedestalNode)
-
-        let width: CGFloat = height / 1.7778
-
-        // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
-        let plane = SCNPlane(width: height, height: width)
-        let videoNode = SCNNode(geometry: plane)
-        addChildNode(videoNode)
-        videoNode.position.y = Float(height / 2) + Float(height / 25)
-        videoNode.eulerAngles.z = -.pi / 2
-
-        plane.materials = [material]
-
-        defer {
-            self.video = .intro
-        }
     }
 
     required init?(coder: NSCoder) {
@@ -82,7 +68,22 @@ class HologramNode: SCNNode {
         }
     }
 
-    func loopingWaiting() {
+    func start() {
+        let width: CGFloat = personHeight / 1.7778
+
+        // Set geometry of the SceneKit node to be a plane, and rotate it to be flat with the image
+        let plane = SCNPlane(width: personHeight, height: width)
+        let videoNode = SCNNode(geometry: plane)
+        addChildNode(videoNode)
+        videoNode.position.y = Float(personHeight / 2) + Float(height / 25)
+        videoNode.eulerAngles.z = -.pi / 2
+
+        plane.materials = [material]
+
+        video = .intro
+    }
+
+    private func loopingWaiting() {
         player = AVPlayer(url: HologramVideo.waitingNoSong.url)
         material.diffuse.contents = player
         DispatchQueue.main.async {

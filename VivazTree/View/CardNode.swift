@@ -40,8 +40,8 @@ class CardNode: SCNNode {
         addChildNode(textNode)
     }
     
-    convenience init(_ person: Person) {
-        self.init(card: Card(image: "eu", title: person.name, description: ""))
+    convenience init(_ person: Person, width: CGFloat = 0.05, height: CGFloat = 0.05) {
+        self.init(card: Card(image: person.imageName ?? "eu", title: person.name, description: ""), width: width, height: height)
     }
     
     required init?(coder: NSCoder) {

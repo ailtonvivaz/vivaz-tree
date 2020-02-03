@@ -13,6 +13,8 @@ class Person: Equatable, Hashable {
 
     private(set) var name: String
     private(set) var birthdate: Date
+    
+    private(set) var imageName: String? = nil
 
     var parents: Family?
     var families: Set<Family> = []
@@ -78,6 +80,11 @@ class Person: Equatable, Hashable {
 
         func birthdate(_ date: Date) -> Builder {
             person.birthdate = date
+            return self
+        }
+        
+        func imageName(_ name: String) -> Builder {
+            person.imageName = name
             return self
         }
 

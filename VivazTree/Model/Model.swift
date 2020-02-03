@@ -15,120 +15,161 @@ class Model {
 
     private init() {
         let person = Person.Builder(name: "Ailton")
+            .imageName("ailton")
             .birthdate(.from(year: 1949, month: 11, day: 9))
             .marry(with: Person.Builder(name: "Salete")
+                .imageName("salete")
                 .birthdate(.from(year: 1965, month: 10, day: 28))
                 .build(), children: [
                     Person.Builder(name: "Claudeires")
+                        .imageName("nena")
                         .birthdate(.from(year: 1984, month: 9, day: 26))
                         .marry(children: [
                             Person.Builder(name: "Taina Crislaine")
+                                .imageName("taina")
                                 .birthdate(.from(year: 1999, month: 2, day: 14))
-                                .marry(with: "Christian", children: [
-                                    Person.Builder(name: "Lorena")
-                                        .birthdate(.from(year: 2018, month: 4, day: 16))
-                                        .build(),
-                                ])
+                                .marry(with: Person.Builder(name: "Christian")
+                                    .imageName("christian")
+                                    .build(), children: [
+                                        Person.Builder(name: "Lorena")
+                                            .imageName("lorena")
+                                            .birthdate(.from(year: 2018, month: 4, day: 16))
+                                            .build(),
+                                    ])
                                 .build(),
                         ])
                         .marry(children: [
                             Person.Builder(name: "Grayce Rosa")
+                                .imageName("grayce")
                                 .birthdate(.from(year: 2000, month: 5, day: 27))
                                 .marry(children: [
                                     Person.Builder(name: "Heloísa")
+                                        .imageName("heloisa")
                                         .birthdate(.from(year: 2018, month: 9, day: 27))
                                         .build(),
                                 ])
                                 .build(),
                             Person.Builder(name: "Kasyllen Karla")
+                                .imageName("kasy")
                                 .birthdate(.from(year: 2001, month: 11, day: 13))
                                 .build(),
                             Person.Builder(name: "Wagner Júnior")
+                                .imageName("juninho")
                                 .birthdate(.from(year: 2002, month: 10, day: 18))
                                 .build(),
                             Person.Builder(name: "Gustavo")
+                                .imageName("gustavo")
                                 .birthdate(.from(year: 2014, month: 8, day: 17))
                                 .build(),
                         ])
                         .marry(with: "Alexandre", children: [
                             Person.Builder(name: "Henrique")
+                                .imageName("henrique")
                                 .birthdate(.from(year: 2019, month: 12, day: 14))
                                 .build(),
                         ])
                         .build(),
                     Person.Builder(name: "Clailton")
+                        .imageName("clailton")
                         .birthdate(.from(year: 1986, month: 6, day: 20))
                         .marry(children: [
                             Person.Builder(name: "Kayky")
+                                .imageName("kayky")
                                 .birthdate(.from(year: 2007, month: 7, day: 15))
                                 .build(),
                         ])
                         .marry(children: [
                             Person.Builder(name: "Murilo")
+                                .imageName("murilo")
                                 .birthdate(.from(year: 2008, month: 3, day: 21))
                                 .build(),
                         ])
                         .marry(with: "Jaqueline", children: [
                             Person.Builder(name: "Clailton Júnior")
+                                .imageName("clailtinho")
                                 .birthdate(.from(year: 2016, month: 6, day: 24))
                                 .build(),
                         ])
                         .build(),
                     Person.Builder(name: "Clodoaldo")
+                        .imageName("clo")
                         .birthdate(.from(year: 1988, month: 5, day: 6))
-                        .marry(with: "Eula", children: [
-                            Person.Builder(name: "Wesllen")
-                                .birthdate(.from(year: 2011, month: 3, day: 31))
-                                .build(),
-                            Person.Builder(name: "Wellignton")
-                                .birthdate(.from(year: 2015, month: 7, day: 12))
-                                .build(),
-                        ])
+                        .marry(with: Person.Builder(name: "Eula")
+                            .imageName("eula")
+                            .build(), children: [
+                                Person.Builder(name: "Wesllen")
+                                    .imageName("wesllen")
+                                    .birthdate(.from(year: 2011, month: 3, day: 31))
+                                    .build(),
+                                Person.Builder(name: "Wellignton")
+                                    .imageName("wellignton")
+                                    .birthdate(.from(year: 2015, month: 7, day: 12))
+                                    .build(),
+                            ])
                         .build(),
                     Person.Builder(name: "Lilian")
+                        .imageName("lilian")
                         .birthdate(.from(year: 1990, month: 5, day: 7))
-                        .marry(with: "Saulo", children: [
-                            Person.Builder(name: "Lara")
-                                .birthdate(.from(year: 1018, month: 8, day: 6))
-                                .build(),
-                        ])
+                        .marry(with: Person.Builder(name: "Saulo")
+                            .imageName("saulo")
+                            .build(), children: [
+                                Person.Builder(name: "Lara")
+                                    .imageName("lara")
+                                    .birthdate(.from(year: 1018, month: 8, day: 6))
+                                    .build(),
+                            ])
                         .build(),
                     Person.Builder(name: "William")
+                        .imageName("william")
                         .birthdate(.from(year: 1990, month: 5, day: 7))
-                        .marry(with: "Geolsiane", children: [
-                            Person.Builder(name: "William Júnior")
-                                .birthdate(.from(year: 2016, month: 1, day: 27))
-                                .build(),
-                            Person.Builder(name: "Wictor")
-                                .birthdate(.from(year: 2020, month: 1, day: 2))
-                                .build(),
-                        ])
+                        .marry(with: Person.Builder(name: "Geolsiane")
+                            .imageName("geolsiane")
+                            .build(), children: [
+                                Person.Builder(name: "William Júnior")
+                                    .imageName("willinha")
+                                    .birthdate(.from(year: 2016, month: 1, day: 27))
+                                    .build(),
+                                Person.Builder(name: "Wictor")
+                                    .imageName("wictor")
+                                    .birthdate(.from(year: 2020, month: 1, day: 2))
+                                    .build(),
+                            ])
                         .build(),
                     Person.Builder(name: "Claudemir")
+                        .imageName("nenem")
                         .birthdate(.from(year: 1992, month: 1, day: 17))
-                        .marry(with: "Carla", children: [
-                            Person.Builder(name: "Maria Júlia")
-                                .birthdate(.from(year: 2014, month: 10, day: 9))
-                                .build(),
-                            Person.Builder(name: "Arthur")
-                                .birthdate(.from(year: 2019, month: 3, day: 23))
-                                .build(),
-                        ])
+                        .marry(with: Person.Builder(name: "Carla")
+                            .imageName("carla")
+                            .build(), children: [
+                                Person.Builder(name: "Maria Júlia")
+                                    .imageName("maju")
+                                    .birthdate(.from(year: 2014, month: 10, day: 9))
+                                    .build(),
+                                Person.Builder(name: "Arthur")
+                                    .imageName("arthur")
+                                    .birthdate(.from(year: 2019, month: 3, day: 23))
+                                    .build(),
+                            ])
                         .build(),
                     Person.Builder(name: "Ailton Filho")
+                        .imageName("ailton_filho")
                         .birthdate(.from(year: 1996, month: 9, day: 17))
                         .marry(with: Person.Builder(name: "Miguel")
+                            .imageName("miguel")
                             .birthdate(.from(year: 1982, month: 9, day: 12))
                             .marry(children: [
                                 Person.Builder(name: "Lupita")
+                                    .imageName("lupita")
                                     .birthdate(.from(year: 2014, month: 11, day: 30))
                                     .build(),
                                 Person.Builder(name: "Boris")
+                                    .imageName("boris")
                                     .birthdate(.from(year: 2014, month: 11, day: 30))
                                     .build(),
                             ])
                             .build(), children: [
                                 Person.Builder(name: "Toddy")
+                                    .imageName("toddy")
                                     .birthdate(.from(year: 2016, month: 8, day: 12))
                                     .build(),
                             ])

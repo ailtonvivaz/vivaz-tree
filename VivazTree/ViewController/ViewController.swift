@@ -76,8 +76,8 @@ extension ViewController: ARSCNViewDelegate {
 
         // MARK: - TreeNode
 
-//        let treeNode = TreeNode(Model.shared.person)
-//        node.addChildNode(treeNode)
-//        treeNode.position.y = hologramNode.boundingBox.max.x + treeNode.height + 0.1
+        let treeNode = TreeNode(Model.shared.person)
+        node.addChildNode(treeNode)
+        treeNode.position.y = hologramNode.boundingBox.max.x + treeNode.height + 0.1
     }
 }

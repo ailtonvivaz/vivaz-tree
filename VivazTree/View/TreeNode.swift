@@ -12,15 +12,16 @@ class TreeNode: SCNNode {
     let person: Person
     
     private let SPACING: Float = 0.01
+    private let CARD_RATIO: Float = 2.0 / 3.0
     
     init(_ person: Person, ignoreWith partner: Person? = nil) {
         self.person = person
         super.init()
         
         let cardHeight: Float = 0.1
-        
+
+        let personNode = CardNode(person, width: CGFloat(cardHeight * CARD_RATIO), height: CGFloat(cardHeight))
         if person.familiesCount == 0 {
-            let personNode = CardNode(person)
             addChildNode(personNode)
         } else {
             var familyOffset: Float = 0
@@ -35,7 +36,6 @@ class TreeNode: SCNNode {
                 var partnersOffset: Float = 0
                 
                 if i == 0 {
-                    let personNode = CardNode(person)
                     partnersNode.addChildNode(personNode)
                     partnersOffset += personNode.width + SPACING
                 }

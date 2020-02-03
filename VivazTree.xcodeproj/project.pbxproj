@@ -20,6 +20,20 @@
 		5E4F7BC423E3926F0052D30F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC323E3926F0052D30F /* Person.swift */; };
 		5E4F7BC623E392AA0052D30F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC523E392AA0052D30F /* Model.swift */; };
 		5E4F7BCA23E3C46C0052D30F /* TesteMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F7BC923E3C46C0052D30F /* TesteMaterial.swift */; };
+		5E7DE99C23E886B500286DE4 /* boris.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE98D23E886B200286DE4 /* boris.mov */; };
+		5E7DE99D23E886B500286DE4 /* lorena.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE98E23E886B200286DE4 /* lorena.mov */; };
+		5E7DE99E23E886B500286DE4 /* lupita.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE98F23E886B200286DE4 /* lupita.mov */; };
+		5E7DE99F23E886B500286DE4 /* henrique.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99023E886B300286DE4 /* henrique.mov */; };
+		5E7DE9A023E886B500286DE4 /* gustavo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99123E886B300286DE4 /* gustavo.mov */; };
+		5E7DE9A123E886B500286DE4 /* willinha.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99223E886B300286DE4 /* willinha.mov */; };
+		5E7DE9A223E886B500286DE4 /* lara.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99323E886B300286DE4 /* lara.mov */; };
+		5E7DE9A323E886B500286DE4 /* toddy.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99423E886B300286DE4 /* toddy.mov */; };
+		5E7DE9A423E886B500286DE4 /* wesllen.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99523E886B400286DE4 /* wesllen.mov */; };
+		5E7DE9A523E886B500286DE4 /* arthur.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99623E886B400286DE4 /* arthur.mov */; };
+		5E7DE9A623E886B500286DE4 /* wellignton.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99723E886B400286DE4 /* wellignton.mov */; };
+		5E7DE9A723E886B500286DE4 /* murilo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99823E886B400286DE4 /* murilo.mov */; };
+		5E7DE9A923E886B500286DE4 /* heloisa.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99A23E886B400286DE4 /* heloisa.mov */; };
+		5E7DE9AA23E886B500286DE4 /* clailtinho.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99B23E886B500286DE4 /* clailtinho.mov */; };
 		5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434723E4EDE000748D36 /* HologramMaterial.swift */; };
 		5EC2434A23E6DAA100748D36 /* HologramNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434923E6DAA000748D36 /* HologramNode.swift */; };
 		5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434B23E6DF4400748D36 /* TreeNode.swift */; };
@@ -50,6 +64,20 @@
 		5E4F7BC323E3926F0052D30F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5E4F7BC523E392AA0052D30F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5E4F7BC923E3C46C0052D30F /* TesteMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteMaterial.swift; sourceTree = "<group>"; };
+		5E7DE98D23E886B200286DE4 /* boris.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = boris.mov; sourceTree = "<group>"; };
+		5E7DE98E23E886B200286DE4 /* lorena.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = lorena.mov; sourceTree = "<group>"; };
+		5E7DE98F23E886B200286DE4 /* lupita.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = lupita.mov; sourceTree = "<group>"; };
+		5E7DE99023E886B300286DE4 /* henrique.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = henrique.mov; sourceTree = "<group>"; };
+		5E7DE99123E886B300286DE4 /* gustavo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gustavo.mov; sourceTree = "<group>"; };
+		5E7DE99223E886B300286DE4 /* willinha.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = willinha.mov; sourceTree = "<group>"; };
+		5E7DE99323E886B300286DE4 /* lara.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = lara.mov; sourceTree = "<group>"; };
+		5E7DE99423E886B300286DE4 /* toddy.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = toddy.mov; sourceTree = "<group>"; };
+		5E7DE99523E886B400286DE4 /* wesllen.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = wesllen.mov; sourceTree = "<group>"; };
+		5E7DE99623E886B400286DE4 /* arthur.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = arthur.mov; sourceTree = "<group>"; };
+		5E7DE99723E886B400286DE4 /* wellignton.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = wellignton.mov; sourceTree = "<group>"; };
+		5E7DE99823E886B400286DE4 /* murilo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = murilo.mov; sourceTree = "<group>"; };
+		5E7DE99A23E886B400286DE4 /* heloisa.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = heloisa.mov; sourceTree = "<group>"; };
+		5E7DE99B23E886B500286DE4 /* clailtinho.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = clailtinho.mov; sourceTree = "<group>"; };
 		5EC2434723E4EDE000748D36 /* HologramMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramMaterial.swift; sourceTree = "<group>"; };
 		5EC2434923E6DAA000748D36 /* HologramNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramNode.swift; sourceTree = "<group>"; };
 		5EC2434B23E6DF4400748D36 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
@@ -138,6 +166,7 @@
 		5E4F7BBD23E391710052D30F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5E7DE98C23E8869100286DE4 /* Videos */,
 				5EE350DC23E84A63003C7713 /* Hologram */,
 				5EC2435223E7943000748D36 /* tech_pedestal.usdz */,
 			);
@@ -164,6 +193,27 @@
 				5E00948523E0EC40005C5DD7 /* LaunchScreen.storyboard */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		5E7DE98C23E8869100286DE4 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				5E7DE99623E886B400286DE4 /* arthur.mov */,
+				5E7DE98D23E886B200286DE4 /* boris.mov */,
+				5E7DE99B23E886B500286DE4 /* clailtinho.mov */,
+				5E7DE99123E886B300286DE4 /* gustavo.mov */,
+				5E7DE99A23E886B400286DE4 /* heloisa.mov */,
+				5E7DE99023E886B300286DE4 /* henrique.mov */,
+				5E7DE99323E886B300286DE4 /* lara.mov */,
+				5E7DE98E23E886B200286DE4 /* lorena.mov */,
+				5E7DE98F23E886B200286DE4 /* lupita.mov */,
+				5E7DE99823E886B400286DE4 /* murilo.mov */,
+				5E7DE99423E886B300286DE4 /* toddy.mov */,
+				5E7DE99723E886B400286DE4 /* wellignton.mov */,
+				5E7DE99523E886B400286DE4 /* wesllen.mov */,
+				5E7DE99223E886B300286DE4 /* willinha.mov */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		5EC2435123E74AE400748D36 /* Extension */ = {
@@ -246,16 +296,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7DE9A523E886B500286DE4 /* arthur.mov in Resources */,
+				5E7DE99E23E886B500286DE4 /* lupita.mov in Resources */,
+				5E7DE9A923E886B500286DE4 /* heloisa.mov in Resources */,
+				5E7DE9A623E886B500286DE4 /* wellignton.mov in Resources */,
+				5E7DE9A023E886B500286DE4 /* gustavo.mov in Resources */,
+				5E7DE9AA23E886B500286DE4 /* clailtinho.mov in Resources */,
+				5E7DE99F23E886B500286DE4 /* henrique.mov in Resources */,
+				5E7DE9A223E886B500286DE4 /* lara.mov in Resources */,
+				5E7DE99C23E886B500286DE4 /* boris.mov in Resources */,
+				5E7DE9A123E886B500286DE4 /* willinha.mov in Resources */,
+				5E7DE9A423E886B500286DE4 /* wesllen.mov in Resources */,
 				5EE350E123E84A6F003C7713 /* start.mp4 in Resources */,
 				5EE350EC23E84D31003C7713 /* waiting_no_song.mp4 in Resources */,
+				5E7DE99D23E886B500286DE4 /* lorena.mov in Resources */,
 				5EC2435323E7943000748D36 /* tech_pedestal.usdz in Resources */,
 				5EE350EB23E84D31003C7713 /* waiting.mp4 in Resources */,
 				5E00948723E0EC40005C5DD7 /* LaunchScreen.storyboard in Resources */,
 				5EE350E223E84A6F003C7713 /* presentation.mp4 in Resources */,
 				5EE350E423E84A6F003C7713 /* intro.mp4 in Resources */,
 				5EE350E323E84A6F003C7713 /* instructions.mp4 in Resources */,
+				5E7DE9A723E886B500286DE4 /* murilo.mov in Resources */,
 				5E00948423E0EC40005C5DD7 /* Assets.xcassets in Resources */,
 				5E00948223E0EC3D005C5DD7 /* Main.storyboard in Resources */,
+				5E7DE9A323E886B500286DE4 /* toddy.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

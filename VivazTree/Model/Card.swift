@@ -14,4 +14,8 @@ struct Card {
     var image: String
     var title: String = ""
     var description: String = ""
+    
+    var videoName: String {
+        String(image.split(separator: "/")[1])
+    }
 }

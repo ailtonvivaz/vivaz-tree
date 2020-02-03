@@ -20,9 +20,13 @@ class Family: Equatable, Hashable {
     
     var eldest: Person? { childrenSorted.first }
     var youngest: Person? { childrenSorted.last }
-
+    
     var childrenSorted: [Person] {
         children.sorted(by: { $0.birthdate < $1.birthdate })
+    }
+    
+    var allPeople: Set<Person> {
+        Set(Array(children.reduce([]) { $0 + Array($1.allPeople) }))
     }
     
     init(partners: Set<Person>, order: Int) {

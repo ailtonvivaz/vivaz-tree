@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         resetTrackingConfiguration()
 
         sceneView.showsStatistics = true
+        let a = Model.shared
 //        sceneView.debugOptions = [.showBoundingBoxes, .showPhysicsFields]
     }
 
@@ -63,7 +64,7 @@ extension ViewController: ARSCNViewDelegate {
         let imageName = referenceImage.name ?? "no name"
         print(imageName)
 
-        if imageName == "eye" {
+        if imageName == "jaque" {
             // MARK: - HologramNode
 
             if self.hologramNode != nil { return }
@@ -78,7 +79,7 @@ extension ViewController: ARSCNViewDelegate {
             let width: CGFloat = referenceImage.physicalSize.width
             let height: CGFloat = referenceImage.physicalSize.height
 
-            let cardNode = CardNode(card: Card(image: imageName), width: width, height: height)
+            let cardNode = CardNode(card: Card(image: "Photos/\(imageName)"), width: width, height: height)
             cardNode.eulerAngles.x = -.pi / 2
             node.addChildNode(cardNode)
         }

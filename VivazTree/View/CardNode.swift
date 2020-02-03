@@ -7,6 +7,7 @@
 //
 
 import SceneKit
+import AVFoundation
 
 class CardNode: SCNNode {
     static var sample: CardNode { CardNode(card: .sample) }
@@ -24,8 +25,25 @@ class CardNode: SCNNode {
         
         let plane = SCNPlane(width: width - 2 * radius, height: height - 2 * radius)
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage(named: card.image)
-        material.ambient.contents = UIColor.white
+        
+        if let filePath = Bundle.main.path(forResource: card.videoName, ofType: "mov") {
+            let url = URL(fileURLWithPath: filePath)
+            let player = AVPlayer(url: url)
+            material.diffuse.contents = player
+            DispatchQueue.main.async {
+                player.seek(to: CMTime.zero)
+                player.play()
+            }
+
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+                NotificationCenter.default.removeObserver(self)
+                self.removeFromParentNode()
+            }
+            
+        } else {
+            material.diffuse.contents = UIImage(named: card.image)
+            material.ambient.contents = UIColor.white
+        }
         
         plane.firstMaterial = material
         
@@ -37,6 +55,7 @@ class CardNode: SCNNode {
         let textNode = createTextNode(string: card.title)
 //        textNode.position.x = -textNode.width / 2
         textNode.position.z = Float(length)
+//        textNode.position.x = Float(width)
         addChildNode(textNode)
     }
     

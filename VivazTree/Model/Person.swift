@@ -13,8 +13,9 @@ class Person: Equatable, Hashable {
 
     private(set) var name: String
     private(set) var birthdate: Date
-    
-    private(set) var imageName: String? = nil
+    private(set) var kinship: String?
+
+    private(set) var imageName: String?
 
     var parents: Family?
     var families: Set<Family> = []
@@ -22,6 +23,10 @@ class Person: Equatable, Hashable {
     var familiesSorted: [Family] { families.sorted(by: { $0.order < $1.order }) }
 
     var familiesCount: Int { families.count }
+
+    var allPeople: Set<Person> {
+        Set(families.reduce([]) { $0 + Array($1.allPeople) })
+    }
 
     var partnersCount: Int {
         Set(families.reduce([]) { $0 + Array([self] + $1.partners) }).count
@@ -82,9 +87,14 @@ class Person: Equatable, Hashable {
             person.birthdate = date
             return self
         }
-        
+
         func imageName(_ name: String) -> Builder {
             person.imageName = name
+            return self
+        }
+        
+        func kinship(_ value: String) -> Builder {
+            person.kinship = value
             return self
         }
 

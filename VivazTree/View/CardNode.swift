@@ -6,22 +6,56 @@
 //  Copyright © 2020 Veevaz. All rights reserved.
 //
 
-import SceneKit
 import AVFoundation
+import SceneKit
 
-class CardNode: SCNNode {
+class CardNode: SCNNode, Tappable {
     static var sample: CardNode { CardNode(card: .sample) }
     var card: Card
+    var onFinish: () -> Void
     
-    init(card: Card, width: CGFloat = 0.05, height: CGFloat = 0.05) {
+    private var sphereNode: SCNNode!
+    private var boxNode: SCNNode!
+    private var planeNode: SCNNode!
+    private var player: AVPlayer?
+    
+    private var showing: Bool = false
+    
+    private var timer: Timer?
+    
+    init(card: Card, width: CGFloat = 0.05, height: CGFloat = 0.05, show: Bool = true, onFinish: @escaping () -> Void = {}) {
         self.card = card
+        self.onFinish = onFinish
         super.init()
         
-        let radius: CGFloat = 0.05 * min(width, height)
-        let length: CGFloat = 0.1 * min(width, height)
+        let minSide = min(width, height)
+        let radius: CGFloat = 0.05 * minSide
+        let length: CGFloat = 0.1 * minSide
+        
+        let sphere = SCNSphere(radius: 0.1 * minSide)
+        let sphereMaterial = SCNMaterial()
+        sphereMaterial.diffuse.contents = UIColor.black
+        sphereMaterial.reflective.contents = UIColor(red: 0, green: 0.764, blue: 1, alpha: 1)
+        sphereMaterial.reflective.intensity = 3
+        sphereMaterial.transparent.contents = UIColor.black.withAlphaComponent(0.5)
+        sphereMaterial.transparencyMode = .default
+        sphereMaterial.fresnelExponent = 4
+        
+        sphere.materials = [sphereMaterial]
+        
+//        let sphereMaterial = SCNMaterial()
+//        sphereMaterial.diffuse.contents = UIColor.blue.withAlphaComponent(0.2)
+//        sphere.firstMaterial = sphereMaterial
+        self.sphereNode = SCNNode(geometry: sphere)
+        addChildNode(sphereNode)
+        
+        sphereNode.runAction(.repeatForever(.sequence([
+            .scale(to: 1.5, duration: 0.5),
+            .scale(to: 1.0, duration: 0.5)
+        ])))
         
         let box = SCNBox(width: width, height: height, length: length, chamferRadius: radius)
-        addChildNode(SCNNode(geometry: box))
+        self.boxNode = SCNNode(geometry: box)
         
         let plane = SCNPlane(width: width - 2 * radius, height: height - 2 * radius)
         let material = SCNMaterial()
@@ -30,15 +64,7 @@ class CardNode: SCNNode {
             let url = URL(fileURLWithPath: filePath)
             let player = AVPlayer(url: url)
             material.diffuse.contents = player
-            DispatchQueue.main.async {
-                player.seek(to: CMTime.zero)
-                player.play()
-            }
-
-            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
-                NotificationCenter.default.removeObserver(self)
-                self.removeFromParentNode()
-            }
+            self.player = player
             
         } else {
             material.diffuse.contents = UIImage(named: card.image)
@@ -47,16 +73,48 @@ class CardNode: SCNNode {
         
         plane.firstMaterial = material
         
-//        geometry = plane
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(0, 0, (length / 2) + 0.0001)
+        self.planeNode = planeNode
+        
+        if show {
+            self.show()
+        }
+    }
+    
+    private func show() {
+        sphereNode.removeFromParentNode()
+        addChildNode(boxNode)
         addChildNode(planeNode)
         
-        let textNode = createTextNode(string: card.title)
-//        textNode.position.x = -textNode.width / 2
-        textNode.position.z = Float(length)
-//        textNode.position.x = Float(width)
-        addChildNode(textNode)
+        if let player = self.player {
+            DispatchQueue.main.async {
+                player.seek(to: CMTime.zero)
+                player.play()
+            }
+            
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+                NotificationCenter.default.removeObserver(self)
+                self.onFinish()
+            }
+        } else {
+            timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { _ in
+                self.onFinish()
+            }
+        }
+        
+        showing = true
+    }
+    
+    func onTap() {
+        print("onTap")
+        if showing {
+            player?.replaceCurrentItem(with: nil)
+            onFinish()
+            timer?.invalidate()
+        } else {
+            show()
+        }
     }
     
     convenience init(_ person: Person, width: CGFloat = 0.05, height: CGFloat = 0.05) {

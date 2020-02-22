@@ -24,7 +24,25 @@ class ViewController: UIViewController {
         resetTrackingConfiguration()
 
         sceneView.showsStatistics = true
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
+
+        //Add recognizer to sceneview
+        sceneView.addGestureRecognizer(tap)
 //        sceneView.debugOptions = [.showBoundingBoxes, .showPhysicsFields]
+    }
+
+    //Method called when tap
+    @objc func handleTap(rec: UITapGestureRecognizer) {
+        if rec.state == .ended {
+            let location: CGPoint = rec.location(in: sceneView)
+            let hits = sceneView.hitTest(location, options: nil)
+            if !hits.isEmpty {
+                if let node = hits.first?.node.firstParent(of: Tappable.self) {
+                     node.onTap()
+                }
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,8 +83,7 @@ class ViewController: UIViewController {
             hologramNode?.start()
             loadTree()
         } else if videos.count > videoIndex {
-            if videoIndex == 2 {
-            }
+            if videoIndex == 2 {}
             videoIndex += 1
             hologramNode?.video = videos[videoIndex]
         }
@@ -99,7 +116,11 @@ extension ViewController: ARSCNViewDelegate {
             let width: CGFloat = referenceImage.physicalSize.width
             let height: CGFloat = referenceImage.physicalSize.height
 
-            let cardNode = CardNode(card: Card(image: "Photos/\(imageName)", tree: true), width: width, height: height)
+            let cardNode = CardNode(card: Card(image: "Photos/\(imageName)", tree: true), width: width, height: height, show: false) { [weak self] in
+                if let vc = self {
+                    vc.sceneView.session.remove(anchor: imageAnchor)
+                }
+            }
             cardNode.eulerAngles.x = -.pi / 2
             node.addChildNode(cardNode)
         }

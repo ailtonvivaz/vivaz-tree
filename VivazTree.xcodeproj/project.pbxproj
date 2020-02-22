@@ -34,6 +34,7 @@
 		5E7DE9A723E886B500286DE4 /* murilo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99823E886B400286DE4 /* murilo.mov */; };
 		5E7DE9A923E886B500286DE4 /* heloisa.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99A23E886B400286DE4 /* heloisa.mov */; };
 		5E7DE9AA23E886B500286DE4 /* clailtinho.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5E7DE99B23E886B500286DE4 /* clailtinho.mov */; };
+		5EAD14722401A73300B860B6 /* Tappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD14712401A73300B860B6 /* Tappable.swift */; };
 		5EC2434823E4EDE000748D36 /* HologramMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434723E4EDE000748D36 /* HologramMaterial.swift */; };
 		5EC2434A23E6DAA100748D36 /* HologramNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434923E6DAA000748D36 /* HologramNode.swift */; };
 		5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC2434B23E6DF4400748D36 /* TreeNode.swift */; };
@@ -78,6 +79,7 @@
 		5E7DE99823E886B400286DE4 /* murilo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = murilo.mov; sourceTree = "<group>"; };
 		5E7DE99A23E886B400286DE4 /* heloisa.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = heloisa.mov; sourceTree = "<group>"; };
 		5E7DE99B23E886B500286DE4 /* clailtinho.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = clailtinho.mov; sourceTree = "<group>"; };
+		5EAD14712401A73300B860B6 /* Tappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tappable.swift; sourceTree = "<group>"; };
 		5EC2434723E4EDE000748D36 /* HologramMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramMaterial.swift; sourceTree = "<group>"; };
 		5EC2434923E6DAA000748D36 /* HologramNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramNode.swift; sourceTree = "<group>"; };
 		5EC2434B23E6DF4400748D36 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				5E4F7BC123E3925A0052D30F /* Family.swift */,
 				5E4F7BC323E3926F0052D30F /* Person.swift */,
 				5E4F7BC523E392AA0052D30F /* Model.swift */,
+				5EAD14712401A73300B860B6 /* Tappable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				5EC2434A23E6DAA100748D36 /* HologramNode.swift in Sources */,
 				5E4F7BC623E392AA0052D30F /* Model.swift in Sources */,
+				5EAD14722401A73300B860B6 /* Tappable.swift in Sources */,
 				5E0094D123E23BF7005C5DD7 /* ChromaKeyMaterial.swift in Sources */,
 				5EC2434C23E6DF4400748D36 /* TreeNode.swift in Sources */,
 				5E0094DB23E25176005C5DD7 /* Card.swift in Sources */,

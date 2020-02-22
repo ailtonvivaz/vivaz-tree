@@ -14,4 +14,23 @@ extension SCNNode {
     var length: Float { boundingBox.max.z - boundingBox.min.z }
 
     var centerX: Float { (boundingBox.max.x + boundingBox.min.x) / 2 }
+    
+    var adam: SCNNode? {
+        if parent?.parent == nil {
+            return self
+        } else {
+            return parent?.adam
+        }
+    }
+    
+    func removeFamilyFromRoot() {
+        adam?.removeFromParentNode()
+    }
+    
+    func firstParent<T>(of type: T.Type) -> T? {
+        if let node = self as? T {
+            return node
+        }
+        return parent?.firstParent(of: type)
+    }
 }
